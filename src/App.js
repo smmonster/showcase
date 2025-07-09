@@ -14,10 +14,10 @@ const GUIDE_LIST = [
   { name: "Guide 5", file: "%PUBLIC_URL%/public/05_eng_lower_case2.png", desc: "영문 소문자 (b, d, f, h, i, k, l, t 있음)" },
   { name: "Guide 6", file: "%PUBLIC_URL%/public/06_eng_lower_case3.png", desc: "영문 소문자 (위 소문자 모두 포함)" },
   { name: "Guide 7", file: "%PUBLIC_URL%/public/07_eng_lower_case4.png", desc: "영문 소문자 (g, j, p, q, y 및 위 소문자 모두 없음)" },
-  { name: "Guide 8", file: "%PUBLIC_URL%/08_eng_etc.png", desc: "문자구분 어려움/예외" },
+  { name: "Guide 8", file: process.env.PUBLIC_URL + "08_eng_etc.png", desc: "문자구분 어려움/예외" },
   { name: "Guide 9", file: "%PUBLIC_URL%/09_kor.png", desc: "한글로 구성" },
 ];
-const RIGHT_GUIDE_FILE = "%PUBLIC_URL%/right_guide.png";
+const RIGHT_GUIDE_FILE = process.env.PUBLIC_URL + "/right_guide.png";
 
 function hexToRgb(hex) {
   hex = hex.replace('#', '');
