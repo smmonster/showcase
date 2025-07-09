@@ -7,15 +7,15 @@ const GUIDE_RIGHT_WIDTH = 42;
 const MAX_WIDTH = 640;
 
 const GUIDE_LIST = [
-  { name: "Guide 1", file: "%PUBLIC_URL%/01_eng_upper.png", desc: "영문 대문자로 구성" },
-  { name: "Guide 2", file: "%PUBLIC_URL%/public/02_eng_uplow_case1.png", desc: "영문 대/소문자 (g, j, p, q, y 없음)" },
-  { name: "Guide 3", file: "%PUBLIC_URL%/public/03_eng_uplow_case2.png", desc: "영문 대/소문자 (g, j, p, q, y 있음)" },
-  { name: "Guide 4", file: "%PUBLIC_URL%/public/04_eng_lower_case1.png", desc: "영문 소문자 (g, j, p, q, y 있음)" },
-  { name: "Guide 5", file: "%PUBLIC_URL%/public/05_eng_lower_case2.png", desc: "영문 소문자 (b, d, f, h, i, k, l, t 있음)" },
-  { name: "Guide 6", file: "%PUBLIC_URL%/public/06_eng_lower_case3.png", desc: "영문 소문자 (위 소문자 모두 포함)" },
-  { name: "Guide 7", file: "%PUBLIC_URL%/public/07_eng_lower_case4.png", desc: "영문 소문자 (g, j, p, q, y 및 위 소문자 모두 없음)" },
-  { name: "Guide 8", file: process.env.PUBLIC_URL + "08_eng_etc.png", desc: "문자구분 어려움/예외" },
-  { name: "Guide 9", file: "%PUBLIC_URL%/09_kor.png", desc: "한글로 구성" },
+  { name: "Guide 1", file: process.env.PUBLIC_URL + "/01_eng_upper.png", desc: "영문 대문자로 구성" },
+  { name: "Guide 2", file: process.env.PUBLIC_URL + "/02_eng_uplow_case1.png", desc: "영문 대/소문자 (g, j, p, q, y 없음)" },
+  { name: "Guide 3", file: process.env.PUBLIC_URL + "/03_eng_uplow_case2.png", desc: "영문 대/소문자 (g, j, p, q, y 있음)" },
+  { name: "Guide 4", file: process.env.PUBLIC_URL + "/04_eng_lower_case1.png", desc: "영문 소문자 (g, j, p, q, y 있음)" },
+  { name: "Guide 5", file: process.env.PUBLIC_URL + "/05_eng_lower_case2.png", desc: "영문 소문자 (b, d, f, h, i, k, l, t 있음)" },
+  { name: "Guide 6", file: process.env.PUBLIC_URL + "/06_eng_lower_case3.png", desc: "영문 소문자 (위 소문자 모두 포함)" },
+  { name: "Guide 7", file: process.env.PUBLIC_URL + "/07_eng_lower_case4.png", desc: "영문 소문자 (g, j, p, q, y 및 위 소문자 모두 없음)" },
+  { name: "Guide 8", file: process.env.PUBLIC_URL + "/08_eng_etc.png", desc: "문자구분 어려움/예외" },
+  { name: "Guide 9", file: process.env.PUBLIC_URL + "/09_kor.png", desc: "한글로 구성" },
 ];
 const RIGHT_GUIDE_FILE = process.env.PUBLIC_URL + "/right_guide.png";
 
@@ -403,7 +403,7 @@ export default function MultiGuideOverlayApp() {
                       {/* left 가이드 오버레이 */}
                       {selectedGuideIdx !== null && (
                         <img
-                          src={`/${GUIDE_LIST[selectedGuideIdx].file}`}
+                          src={`${GUIDE_LIST[selectedGuideIdx].file}`}
                           alt={`Guide overlay left`}
                           className="overlay-img overlay-guide overlay-guide-left"
                           style={{
@@ -418,7 +418,7 @@ export default function MultiGuideOverlayApp() {
                       {/* 공통 right 가이드 오버레이 */}
                       {selectedGuideIdx !== null && (
                         <img
-                          src={`/${RIGHT_GUIDE_FILE}`}
+                          src={`${RIGHT_GUIDE_FILE}`}
                           alt="Guide overlay right"
                           className="overlay-img overlay-guide overlay-guide-right"
                           style={{
