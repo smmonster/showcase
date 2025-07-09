@@ -15,9 +15,9 @@ const GUIDE_LIST = [
   { name: "Guide 6", file: "../public/06_eng_lower_case3.png", desc: "영문 소문자 (위 소문자 모두 포함)" },
   { name: "Guide 7", file: "../public/07_eng_lower_case4.png", desc: "영문 소문자 (g, j, p, q, y 및 위 소문자 모두 없음)" },
   { name: "Guide 8", file: "../public/08_eng_etc.png", desc: "문자구분 어려움/예외" },
-  { name: "Guide 9", file: "../public/09_kor.png", desc: "한글로 구성" },
+  { name: "Guide 9", file: "/09_kor.png", desc: "한글로 구성" },
 ];
-const RIGHT_GUIDE_FILE = "../public/right_guide.png";
+const RIGHT_GUIDE_FILE = "/right_guide.png";
 
 function hexToRgb(hex) {
   hex = hex.replace('#', '');
