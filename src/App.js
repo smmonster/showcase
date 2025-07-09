@@ -17,7 +17,7 @@ const GUIDE_LIST = [
   { name: "Guide 8", file: process.env.PUBLIC_URL + "08_eng_etc.png", desc: "문자구분 어려움/예외" },
   { name: "Guide 9", file: "/09_kor.png", desc: "한글로 구성" },
 ];
-const RIGHT_GUIDE_FILE = process.env.PUBLIC_URL + "right_guide.png";
+const RIGHT_GUIDE_FILE = process.env.PUBLIC_URL + "/right_guide.png";
 
 function hexToRgb(hex) {
   hex = hex.replace('#', '');
