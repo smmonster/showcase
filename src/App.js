@@ -25,6 +25,25 @@ function hexToRgb(hex) {
   const num = parseInt(hex, 16);
   return [num >> 16, (num >> 8) & 0xff, num & 0xff];
 }
+
+function hexToHsv(hex) {
+  hex = hex.replace("#", "");
+  if (hex.length === 3) hex = hex.split("").map(x => x + x).join("");
+  const num = parseInt(hex, 16);
+  let r = (num >> 16) & 255;
+  let g = (num >> 8) & 255;
+  let b = num & 255;
+
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const d = max - min;
+
+  const v = max * 100;
+  const s = max === 0 ? 0 : (d / max) * 100;
+
+  return { s, v }; // 채도(S), 명도(B)
+}
+
 function channelLuminance(c) {
   c /= 255;
   return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
@@ -350,6 +369,31 @@ export default function MultiGuideOverlayApp() {
                           <>
                             {ratio.toFixed(2)}
                             <span className="info-check-criteria"> (배경 - 로고 명암비 2.0 이상)</span>
+                          </>
+                        );
+                      })()}
+                    </span>
+                  </div>
+                  <div className="info-check-row">
+                    <span className="info-check-icon">
+                      {(() => {
+                        const { s, v } = hexToHsv(bgColor);
+                        return (s + v <= 180)
+                          ? <span className="check-green">✔</span>
+                          : <span className="check-red">✖</span>;
+                      })()}
+                    </span>
+                    <span className="info-check-label">채도+명도</span>
+                    <span className="info-check-value">
+                      {(() => {
+                        const { s, v } = hexToHsv(bgColor);
+                        const sRounded = Math.round(s);
+                        const vRounded = Math.round(v);
+                        const sum = sRounded + vRounded;
+                        return (
+                          <>
+                            {`S: ${sRounded}, B: ${vRounded} (합: ${sum})`}
+                            <span className="info-check-criteria"> (합 180 이하)</span>
                           </>
                         );
                       })()}

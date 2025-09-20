@@ -303,7 +303,7 @@ body {
 .check-red { color: #d73a35; font-weight: 700; }
 .info-check-label {
   font-weight: 600;
-  min-width: 48px;
+  min-width: 90px;
   color: #222;
   font-size: 0.98rem;
 }
