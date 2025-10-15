@@ -160,7 +160,7 @@ export default function MultiGuideOverlayApp() {
 
   const handleBgColorChange = (e) => {
     let val = e.target.value;
-    if (!val.startsWith("#")) val = "" + val.replace(/[^a-fA-F0-9]/g, "");
+    if (!val.startsWith("#")) val = "#" + val.replace(/[^a-fA-F0-9]/g, "");
     setBgColor(val.slice(0, 7));
   };
 
