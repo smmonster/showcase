@@ -520,3 +520,110 @@ body {
   background: none;
   font-weight: 700;
 }
+
+/* 수동 체크리스트 */
+.manual-checklist {
+  list-style: none;
+  margin: 4px 0 6px 0;
+  padding: 0;
+  width: 100%;
+}
+
+.manual-check-item {
+  background: #fff;
+  border: 1px solid #e8e8ee;
+  border-radius: 6px;
+  padding: 12px 12px 10px 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(40,40,60,0.04);
+}
+
+.manual-check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.manual-check-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #232323;
+  cursor: pointer;
+}
+
+.manual-check-label {
+  font-size: 0.99rem;
+  color: #222;
+  font-weight: 600;
+}
+
+.manual-check-guide {
+  margin-top: 6px;
+  font-size: 0.94rem;
+  color: #566687;
+  line-height: 1.5;
+  border-left: 1px solid #e1e6f6;
+  padding-left: 10px;
+}
+
+.manual-check-guide-text {
+  color: #354564;
+}
+
+/* 수동 체크리스트 (기본가이드 스타일 통일 + 체크박스형) */
+.ad-info-box-check--manual {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #b5b5b5;
+}
+
+.manual-check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: #222;
+  font-size: 0.97rem;
+}
+
+.manual-check-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.manual-check-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #232323;
+  cursor: pointer;
+}
+
+.manual-check-text {
+  font-weight: 600;
+  color: #232323;
+}
+
+.manual-check-guide {
+  color: #888;
+  font-size: 0.93rem;
+  line-height: 1.45;
+  flex: 1;
+  margin-left: 6px;
+}
+
+/* 수동 체크리스트 제목 */
+.manual-checklist-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #373737;
+  margin-top: 20px;
+  margin-left: 6px;
+  margin-bottom: -8px;
+  letter-spacing: -0.03em;
+  text-align: left;
+}

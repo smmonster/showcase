@@ -14,10 +14,25 @@ const GUIDE_LIST = [
   { name: "Guide 5", file: process.env.PUBLIC_URL + "/05_eng_lower_case2.png", desc: "영문 소문자 (b, d, f, h, i, k, l, t 있음)" },
   { name: "Guide 6", file: process.env.PUBLIC_URL + "/06_eng_lower_case3.png", desc: "영문 소문자 (위 소문자 모두 포함)" },
   { name: "Guide 7", file: process.env.PUBLIC_URL + "/07_eng_lower_case4.png", desc: "영문 소문자 (g, j, p, q, y 및 위 소문자 모두 없음)" },
-  { name: "Guide 8", file: process.env.PUBLIC_URL + "/08_eng_etc.png", desc: "문자구분 어려움/예외" },
+  { name: "Guide 8", file: process.env.PUBLIC_URL + "/08_eng_etc.png", desc: "영문 서체 변경/손글씨" },
   { name: "Guide 9", file: process.env.PUBLIC_URL + "/09_kor.png", desc: "한글로 구성" },
 ];
 const RIGHT_GUIDE_FILE = process.env.PUBLIC_URL + "/right_guide.png";
+
+// 수동 체크리스트 항목 (기준 문구 포함)
+const MANUAL_CHECK_ITEMS = [
+  {
+    id: "brand_only",
+    label: "광고주/브랜드명 단독 제작",
+    guide: "광고주+브랜드(e.g. '삼성 갤럭시') 또는 캠페인명 등록 불가"
+  },
+  {
+    id: "no_special_chars",
+    label: "특수문자 미사용",
+    guide: "브랜드 로고 자체에 포함된 특수문자만 예외적으로 허용"
+  }
+];
+
 
 function hexToRgb(hex) {
   hex = hex.replace('#', '');
@@ -141,6 +156,16 @@ export default function MultiGuideOverlayApp() {
   const [ocrText, setOcrText] = useState("");
   const [ocrGuideIdx, setOcrGuideIdx] = useState(null);
   const [manualGuideIdx, setManualGuideIdx] = useState(null);
+
+  // 수동 체크리스트 상태
+const [manualChecks, setManualChecks] = useState(
+  Object.fromEntries(MANUAL_CHECK_ITEMS.map(i => [i.id, false]))
+);
+
+const toggleManualCheck = (id) => {
+  setManualChecks(prev => ({ ...prev, [id]: !prev[id] }));
+};
+
 
   // 탭 상태: "basic" | "margin"
   const [tab, setTab] = useState("basic");
@@ -399,6 +424,28 @@ export default function MultiGuideOverlayApp() {
                     </span>
                   </div>
                 </div>
+
+{/* 수동 체크리스트 (기본가이드와 동일 UI) */}
+<div className="manual-checklist-title">※ 수동 체크리스트</div>
+<div className="ad-info-box-check ad-info-box-check--manual">
+  {MANUAL_CHECK_ITEMS.map((item, idx) => (
+    <div key={item.id} className="info-check-row manual-check-row">
+      <label className="manual-check-label">
+        <input
+          type="checkbox"
+          checked={!!manualChecks[item.id]}
+          onChange={() => toggleManualCheck(item.id)}
+        />
+        <span className="manual-check-text">
+          {} {item.label}
+        </span>
+      </label>
+      <span className="manual-check-guide">{item.guide}</span>
+    </div>
+  ))}
+</div>
+
+
               </>
             )}
 
