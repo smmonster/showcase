@@ -23,13 +23,28 @@ const RIGHT_GUIDE_FILE = process.env.PUBLIC_URL + "/right_guide.png";
 const MANUAL_CHECK_ITEMS = [
   {
     id: "brand_only",
-    label: "광고주/브랜드명 단독 제작",
+    label: "광고주/브랜드명 단독 적용",
     guide: "광고주+브랜드(e.g. '삼성 갤럭시') 또는 캠페인명 등록 불가"
   },
   {
     id: "no_special_chars",
     label: "특수문자 미사용",
     guide: "브랜드 로고 자체에 포함된 특수문자만 예외적으로 허용"
+  },
+  {
+    id: "check_logo2",
+    label: "좌/우 여백 적용 불가",
+    guide: "브랜드로고 이미지의 좌우측은 여백 없이 제작"
+  },
+  {
+    id: "check_logo",
+    label: "띄어쓰기 확인",
+    guide: "브랜드 로고 가 띄어쓰기를 포함하고 있을 경우, 간격이 너무 넓어보이지 않는지 체크"
+  },
+  {
+    id: "check_logo2",
+    label: "로고 서체 확인",
+    guide: "변경 및 왜곡이 심한 서체의 경우, 별도 디자인 검토 필요"
   }
 ];
 
